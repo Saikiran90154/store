@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashion Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Slider Animation */
+    .slider {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black">
+
+  <!-- HEADER -->
+  <header class="flex items-center justify-between px-6 py-4 shadow-md sticky top-0 bg-white z-50">
+    <div class="text-2xl font-extrabold">FASHION</div>
+
+    <nav class="hidden md:flex gap-6 font-semibold">
+      <a href="#" class="hover:text-gray-500">Men</a>
+      <a href="#" class="hover:text-gray-500">Women</a>
+      <a href="#" class="hover:text-gray-500">Winter</a>
+      <a href="#" class="hover:text-gray-500">Offers</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <input type="text" placeholder="Search" class="border px-3 py-1 rounded hidden md:block">
+      <a href="{{ url_for('login_page') }}"><img src="https://img.icons8.com/ios-filled/24/user.png"/></a>
+      <a href="{{ url_for('products') }}"><img src="https://img.icons8.com/ios-filled/24/shopping-bag.png"/></a>
+    </div>
+  </header>
+
+<!-- SLIDER WRAPPER -->
+<div class="w-full overflow-hidden mt-4 relative">
+
+  <!-- Slider container -->
+  <div id="slider" class="flex transition-all duration-700">
+
+    <!-- Slide 1 (19:6 ratio) -->
+    <img 
+      src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80" 
+      class="w-full object-cover"
+      style="aspect-ratio: 19 / 6;"
+    />
+
+    <!-- Slide 2 -->
+    <img 
+      src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80" 
+      class="w-full object-cover"
+      style="aspect-ratio: 19 / 6;"
+    />
+
+    <!-- Slide 3 -->
+    <img 
+      src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80" 
+      class="w-full object-cover"
+      style="aspect-ratio: 19 / 6;"
+    />
+        <img 
+      src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80" 
+      class="w-full object-cover"
+      style="aspect-ratio: 19 / 6;"
+    />
+
+  </div>
+</div>
+
+
+
+
+  <!-- CATEGORY LABEL -->
+  <h2 class="text-center text-xl font-bold mt-10 mb-4">FEATURED CATEGORIES</h2>
+
+  <!-- CATEGORY GRID -->
+  <div class="grid grid-cols-2 md:grid-cols-6 gap-4 px-4 md:px-10">
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">Shirts</p>
+    </div>
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">Trousers</p>
+    </div>
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">Jeans</p>
+    </div>
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">T-Shirts</p>
+    </div>
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">Winterwear</p>
+    </div>
+
+    <div class="bg-gray-200 rounded overflow-hidden shadow">
+      <img src="https://th.bing.com/th/id/OIP.HcT4oQqIolvKOYrhP6KDNwHaKP?w=182&h=252&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1" class="w-full">
+      <p class="p-2 text-center font-semibold">Essentials</p>
+    </div>
+
+  </div>
+
+  
+<body class="bg-white text-black">
+
+  <!-- TITLE SECTION -->
+  <h2 class="text-center text-lg md:text-xl font-bold mt-8 tracking-wide">
+    SHOP YOUR SIZE
+  </h2>
+
+  <!-- OFFER BANNER -->
+  <div class="w-full max-w-7xl mx-auto mt-4">
+    <img 
+      src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80" 
+      class="w-full rounded-lg"
+    />
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <div class="max-w-7xl mx-auto px-4 mt-10 grid grid-cols-2 md:grid-cols-5 gap-6">
+
+    <!-- PRODUCT CARD -->
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Light Weight Flannel Plaid Shirt</p>
+      <p class="text-gray-700 font-bold">₹999</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Baggy Stretch Trousers</p>
+      <p class="text-gray-700 font-bold">₹1499</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1618354691243-e17d783ed77c?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Flannel Checks Shirt</p>
+      <p class="text-gray-700 font-bold">₹999</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Yellow Flannel Shirt</p>
+      <p class="text-gray-700 font-bold">₹999</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1593030668930-714ad1c2c15b?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Brown Linen Shirt</p>
+      <p class="text-gray-700 font-bold">₹1399</p>
+    </div>
+
+    <!-- ROW 2 -->
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Black Sleeveless Tee</p>
+      <p class="text-gray-700 font-bold">₹499</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1600180521071-7c8d52a89c0d?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Grey Flannel Shirt</p>
+      <p class="text-gray-700 font-bold">₹1199</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Red Casual Tee</p>
+      <p class="text-gray-700 font-bold">₹699</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Green Tank Top</p>
+      <p class="text-gray-700 font-bold">₹399</p>
+    </div>
+
+    <div>
+      <img 
+        src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80" 
+        class="w-full rounded-lg"
+      />
+      <p class="mt-2 font-semibold text-sm md:text-base">Grey Tank Top</p>
+      <p class="text-gray-700 font-bold">₹399</p>
+    </div>
+
+  </div>
+
+
+ <!-- FOOTER -->
+<footer class="bg-black text-white mt-20">
+  
+  <!-- Top Footer -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <!-- ABOUT -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">ABOUT US</h3>
+      <p class="text-gray-400 text-sm leading-6">
+        We bring premium quality fashion at affordable prices.  
+        Explore shirts, trousers, winterwear & all latest trends.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">QUICK LINKS</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="#" class="hover:text-white">New Arrivals</a></li>
+        <li><a href="#" class="hover:text-white">Shirts</a></li>
+        <li><a href="#" class="hover:text-white">Trousers</a></li>
+        <li><a href="#" class="hover:text-white">Winter Collection</a></li>
+        <li><a href="#" class="hover:text-white">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">SUPPORT</h3>
+      <ul class="space-y-2 text-gray-300 text-sm">
+        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+        <li><a href="#" class="hover:text-white">FAQ</a></li>
+        <li><a href="#" class="hover:text-white">Track Order</a></li>
+        <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+        <li><a href="#" class="hover:text-white">Return Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">NEWSLETTER</h3>
+      <p class="text-gray-400 text-sm mb-3">
+        Subscribe to get updates on new arrivals & special offers.
+      </p>
+
+      <div class="flex">
+        <input 
+          type="email" 
+          placeholder="Enter your email" 
+          class="px-3 py-2 w-full text-black rounded-l"
+        >
+        <button class="bg-white text-black px-4 font-bold rounded-r">
+          Join
+        </button>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="flex items-center gap-4 mt-5">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram.png"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/youtube.png"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="text-center py-4 border-t border-gray-700 text-gray-400 text-sm">
+    © 2025 Fashion Store. All Rights Reserved.
+  </div>
+
+</footer>
+
+<!-- JS FOR AUTO SCROLL -->
+<script>
+  let index = 0;
+
+  function moveSlider() {
+    const slides = document.querySelectorAll("#slider img").length;
+    index = (index + 1) % slides;
+    document.getElementById("slider").style.transform =
+      `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(moveSlider, 3000);
+</script>
+
+
+</body>
+</html>
