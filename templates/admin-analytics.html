@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Analytics</title>
+
+  <!-- Load CSS from Flask static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="brand">Dream X Store Admin</div>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- FIXED TABS WITH FLASK URLS -->
+    <div class="tabs">
+      <a class="tab" href="{{ url_for('page_dashboard') }}">Dashboard</a>
+      <a class="tab" href="{{ url_for('page_brands') }}">Brand Accounts</a>
+      <a class="tab" href="{{ url_for('page_images') }}">Product Images</a>
+      <a class="tab active" href="{{ url_for('page_analytics') }}">Analytics</a>
+    </div>
+
+    <div class="card">
+      <h2>Analytics</h2>
+
+      <div class="analytic-row" style="margin-top:12px">
+
+        <!-- Top Brands -->
+        <div class="card">
+          <h3>Top Performing Brands</h3>
+          <ul id="top-brands" class="kpi-list" style="margin-top:10px"></ul>
+        </div>
+
+        <!-- Order Status -->
+        <div class="card">
+          <h3>Order Status Distribution</h3>
+          <ul id="order-status" style="margin-top:10px"></ul>
+        </div>
+
+        <!-- Monthly Growth -->
+        <div class="card">
+          <h3>Monthly Growth</h3>
+          <div id="monthly-growth" style="margin-top:24px"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FIXED JS PATH FOR FLASK -->
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

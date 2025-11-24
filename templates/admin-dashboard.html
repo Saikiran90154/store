@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Dashboard</title>
+
+  <!-- Load CSS from Flask static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="brand">Dream X Store Admin</div>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- FIXED TABS USING url_for -->
+    <div class="tabs">
+      <a class="tab active" href="{{ url_for('page_dashboard') }}">Dashboard</a>
+      <a class="tab" href="{{ url_for('page_brands') }}">Brand Accounts</a>
+      <a class="tab" href="{{ url_for('page_images') }}">Product Images</a>
+      <a class="tab" href="{{ url_for('page_analytics') }}">Analytics</a>
+    </div>
+
+    <div class="card">
+      <h2>Admin Dashboard</h2>
+
+      <div class="stats" style="margin-top:12px">
+        
+        <!-- Total Users -->
+        <div class="stat" id="stat-users">
+          <div class="left">
+            <div>
+              <div class="label">Total Users</div>
+              <div class="num">-</div>
+            </div>
+          </div>
+          <div style="opacity:0.6">👥</div>
+        </div>
+
+        <!-- Total Brands -->
+        <div class="stat" id="stat-brands">
+          <div>
+            <div class="label">Brand Accounts</div>
+            <div class="num">-</div>
+          </div>
+          <div style="opacity:0.6">📦</div>
+        </div>
+
+        <!-- Total Orders -->
+        <div class="stat" id="stat-orders">
+          <div>
+            <div class="label">Total Orders</div>
+            <div class="num">-</div>
+          </div>
+          <div style="opacity:0.6">🧾</div>
+        </div>
+
+        <!-- Total Revenue -->
+        <div class="stat" id="stat-revenue">
+          <div>
+            <div class="label">Total Revenue</div>
+            <div class="num">-</div>
+          </div>
+          <div style="opacity:0.6">📈</div>
+        </div>
+
+      </div>
+
+      <!-- Recent Orders + Brands -->
+      <div class="grid-2">
+        
+        <div class="card recent" style="min-height:180px">
+          <h3>Recent Orders</h3>
+          <div id="recent-orders" style="margin-top:10px"></div>
+        </div>
+
+        <div class="card recent" style="min-height:180px">
+          <h3>Recent Brands</h3>
+          <div id="recent-brands" style="margin-top:10px"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS linked correctly for Flask -->
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Product Images</title>
+
+  <!-- Load CSS using Flask static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="brand">Dream X Store Admin</div>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- FIXED TABS USING FLASK url_for -->
+    <div class="tabs">
+      <a class="tab" href="{{ url_for('page_dashboard') }}">Dashboard</a>
+      <a class="tab" href="{{ url_for('page_brands') }}">Brand Accounts</a>
+      <a class="tab active" href="{{ url_for('page_images') }}">Product Images</a>
+      <a class="tab" href="{{ url_for('page_analytics') }}">Analytics</a>
+    </div>
+
+    <div class="card">
+      <h2>Product Image Upload</h2>
+
+      <div class="upload-grid">
+
+        <label class="upload-box card">
+          <input type="file" class="img-file" name="img1" accept="image/*">
+          <div>
+            <div style="font-size:22px;color:var(--muted)">📤</div>
+            <div class="hint">Upload Product Image 1<br><small>Click or drag & drop</small></div>
+          </div>
+        </label>
+
+        <label class="upload-box card">
+          <input type="file" class="img-file" name="img2" accept="image/*">
+          <div>
+            <div style="font-size:22px;color:var(--muted)">📤</div>
+            <div class="hint">Upload Product Image 2<br><small>Click or drag & drop</small></div>
+          </div>
+        </label>
+
+        <label class="upload-box card">
+          <input type="file" class="img-file" name="img3" accept="image/*">
+          <div>
+            <div style="font-size:22px;color:var(--muted)">📤</div>
+            <div class="hint">Upload Product Image 3<br><small>Click or drag & drop</small></div>
+          </div>
+        </label>
+
+        <label class="upload-box card">
+          <input type="file" class="img-file" name="img4" accept="image/*">
+          <div>
+            <div style="font-size:22px;color:var(--muted)">📤</div>
+            <div class="hint">Upload Product Image 4<br><small>Click or drag & drop</small></div>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="guidelines">
+        <strong>Image Guidelines:</strong>
+        <ul>
+          <li>Minimum: 1000 × 1000 pixels</li>
+          <li>Formats: JPG, PNG, WEBP</li>
+          <li>Max size: 5 MB per image</li>
+          <li>Background: White or Transparent</li>
+        </ul>
+      </div>
+
+      <div class="upload-actions">
+        <button 
+          id="uploadImages"
+          class="tab"
+          style="background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:8px"
+        >
+          Upload Images
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FIXED JS -->
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
+
+  <!-- Connect upload button with Flask backend -->
+  <script>
+    document.getElementById("uploadImages").onclick = async () => {
+
+      let files = document.querySelectorAll(".img-file");
+      let formData = new FormData();
+
+      files.forEach(f => {
+        if (f.files.length > 0) {
+          formData.append("images", f.files[0]);
+        }
+      });
+
+      const res = await fetch("/admin/upload-product-images", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      // Redirect to home page after upload success
+window.location.href = "{{ url_for('index') }}";
+
+    };
+  </script>
+
+</body>
+</html>

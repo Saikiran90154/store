@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Brand Accounts</title>
+
+  <!-- Load CSS from Flask static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="brand">Dream X Store Admin</div>
+  </div>
+
+  <div class="wrapper">
+
+    <!-- FIXED TABS WITH FLASK ROUTES -->
+    <div class="tabs">
+      <a class="tab" href="{{ url_for('page_dashboard') }}">Dashboard</a>
+      <a class="tab active" href="{{ url_for('page_brands') }}">Brand Accounts</a>
+      <a class="tab" href="{{ url_for('page_images') }}">Product Images</a>
+      <a class="tab" href="{{ url_for('page_analytics') }}">Analytics</a>
+    </div>
+
+    <div class="card">
+      <h2>Brand Accounts</h2>
+
+      <div class="search-row" style="margin-top:12px">
+        <div class="search">
+          <svg width="16" height="16" style="opacity:.6" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9.5 3a6.5 6.5 0 0 1 5.13 10.43l5.44 5.44-1.42 1.42-5.44-5.44A6.5 6.5 0 1 1 9.5 3zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/>
+          </svg>
+          <input id="brand-search" placeholder="Search brands...">
+        </div>
+
+        <!-- Add Brand Button -->
+        <button class="tab" style="background:var(--accent); color:#fff; border:none">
+          + Add Brand Account
+        </button>
+      </div>
+
+      <!-- Brands Table -->
+      <div style="margin-top:12px" class="card">
+        <table class="table" id="brands-table">
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>Brand Name</th>
+              <th>Owner Email</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Created At</th>
+              <th style="width:120px; text-align:right">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Populated by /api/brands via admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FIXED JS FILE PATH -->
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

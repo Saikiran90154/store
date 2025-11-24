@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Orders</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="brand">Dream X Store Admin</div>
+  </div>
+
+  <div class="wrapper">
+
+    <div class="tabs">
+      <a class="tab" href="{{ url_for('page_dashboard') }}">Dashboard</a>
+      <a class="tab" href="{{ url_for('page_brands') }}">Brands</a>
+      <a class="tab" href="{{ url_for('page_images') }}">Images</a>
+      <a class="tab" href="{{ url_for('page_analytics') }}">Analytics</a>
+      <a class="tab active" href="{{ url_for('page_orders') }}">Orders</a>
+    </div>
+
+    <div class="card">
+      <h2>Orders</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+
+        <tbody id="ordersList"></tbody>
+      </table>
+
+    </div>
+  </div>
+
+<script>
+fetch("/api/orders")
+  .then(res => res.json())
+  .then(data => {
+    const tbody = document.getElementById("ordersList");
+    data.orders.forEach(o => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${o.id}</td>
+          <td>${o.user}</td>
+          <td>₹${o.total}</td>
+          <td>${o.status}</td>
+          <td>${o.created}</td>
+        </tr>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>

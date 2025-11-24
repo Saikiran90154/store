@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-black">
+
+  <!-- HEADER -->
+  <header class="flex items-center justify-between px-6 py-4 shadow-sm">
+    
+    <!-- Left -->
+    <button class="p-2 border rounded-md">
+      <a href="{{ url_for('index') }}">
+        <img src="https://img.icons8.com/ios-filled/20/menu-rounded.png" />
+      </a>
+    </button>
+
+    <!-- Logo -->
+    <h1 class="text-2xl font-extrabold tracking-wide">SNITCH</h1>
+
+    <!-- Right Icons -->
+    <div class="flex items-center gap-4">
+      <img src="https://img.icons8.com/ios-filled/22/search.png"/>
+      <img src="https://img.icons8.com/ios-filled/22/user.png"/>
+      <img src="https://img.icons8.com/ios-filled/22/shopping-bag.png"/>
+
+      <!-- FIXED: Correct admin dashboard route -->
+      <a href="{{ url_for('page_dashboard') }}">
+        <img src="https://img.icons8.com/ios-filled/22/like.png"/>
+      </a>
+    </div>
+
+  </header>
+
+  <!-- EMPTY CART SECTION -->
+  <div class="flex flex-col items-center text-center mt-24 px-4">
+
+    <!-- Bag Illustration -->
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png"
+      class="w-32 opacity-80 mb-6"
+    />
+
+    <!-- Title -->
+    <h2 class="text-xl font-bold mb-3">YOUR BAG IS EMPTY</h2>
+
+    <!-- Description -->
+    <p class="text-gray-600 max-w-md text-sm md:text-base mb-10">
+      Your cart is ready to roll, but it's feeling a bit empty without some stylish finds.
+    </p>
+
+    <!-- BUTTONS WRAPPER -->
+    <div class="flex flex-col md:flex-row gap-4 md:gap-0">
+
+      <!-- Start Shopping -->
+      <a 
+        href="{{ url_for('products') }}"
+        class="bg-black text-white px-10 py-3 font-bold text-sm tracking-wide border border-black md:border-r-0 md:rounded-l-md rounded-md md:rounded-none"
+      >
+        START SHOPPING
+      </a>
+
+      <!-- Add From Wishlist -->
+      <a 
+        href="#"
+        class="px-10 py-3 font-bold text-sm tracking-wide border border-black text-black md:rounded-r-md rounded-md md:rounded-none"
+      >
+        ADD FROM WISHLIST
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
